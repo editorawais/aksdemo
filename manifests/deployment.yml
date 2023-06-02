@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: acrimg 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: acrimg
+  template:
+    metadata:
+      labels:
+        app: acrimg 
+    spec:
+      containers:
+        - name: acrimg 
+          image: cc24acr.azurecr.io/acrimg
+          ports:
+          - containerPort: 80
