@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: acr 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: acr
+  template:
+    metadata:
+      labels:
+        app: acr 
+    spec:
+      containers:
+        - name: acr 
+          image: cc24acr.azurecr.io/acr
+          ports:
+          - containerPort: 80
